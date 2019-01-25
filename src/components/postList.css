@@ -1,0 +1,26 @@
+.link {
+  text-decoration: none;
+  color: rgb(58, 58, 58);
+}
+
+.link h1 {
+  font-size: 1.8em;
+  text-decoration: underline;
+}
+
+.post-list {
+  transition: all ease-in-out 0.1s;
+  padding: 1rem;
+  border-radius: 3px;
+}
+.post-list:hover {
+  background-color: #efefef;
+}
+.post-list span {
+  font-weight: 100;
+  font-size: 0.8em;
+}
+.post-list p {
+  font-weight: 300;
+  font-size: 0.9em;
+}
