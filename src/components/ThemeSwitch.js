@@ -76,7 +76,7 @@ class ThemeSwitch extends Component {
 
 ThemeSwitch.defaultProps = {
   preserveRasters: true,
-  store: localStorage,
+  store: localStorage || false,
   storeKey: 'ThemeSwitch',
 }
 
