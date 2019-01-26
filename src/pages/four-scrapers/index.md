@@ -23,21 +23,19 @@ Some questions I have asked myself in each of these scenarios: How do I import m
 
 I have some experience with web scraping. I find it enjoyable to tinker with in my spare time, and I have worked professionally on projects that involve some fairly comprehensive setups. For this experiment, I want to use standard package methods. This way we get the benefit of gaining some familiarity with the language, rather than learning the API of a particular package.
 
-> # Requirements —
+> Requirements —
 >
-> # make an http request for a page
+> make an http request for a page
 >
-> # store that page locally on the filesystem (making sure that we do not overwrite a previous scrape)
+> store that page locally on the filesystem (making sure that we do not overwrite a previous scrape)
 >
-> # read that file from the disk
+> read that file from the disk
 >
-> # use native methods to find a search term
+> use native methods to find a search term
 
 Attaining these four goals involves a much deeper understanding of each language than printing some[ Tiger Woods quote](https://www.youtube.com/watch?v=pLf3Gb5TcXs) (😝, [I‘m aware it’s from C](https://en.wikipedia.org/wiki/%22Hello,_World!%22_program)). We will learn how each language handles asynchronous behavior, how it reads and writes files, and deals with primitives. Not to mention we will also be printing something meaningful to the console.
 
-### -[ NodeJS ](https://nodejs.org)-
-
-![Photo by [Mario Gogh](https://unsplash.com/@mariogogh?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/12000/0*zC-4fc1SRFRkwp-D)_Photo by [Mario Gogh](https://unsplash.com/@mariogogh?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)_
+## -[ NodeJS ](https://nodejs.org)-
 
 I work daily in JavaScript, this will set the bar for what I want to replicate in other languages. Keeping as much as possible native and simple. I came up with this:
 
@@ -88,9 +86,7 @@ Another solution would involve promises, and could even involve async and await 
 
 Overall we have a basic scrape of a page and can find a search string and report that back to the user. This could be much more robust, however making a comparison between languages becomes harder, and less meaningful the more complex the application.
 
-### -[ Go-lang ](https://golang.org/)-
-
-![Photo by [Sorin Sîrbu](https://unsplash.com/@sirbusorin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/12032/0*aotYU_QyueM0dCYL)_Photo by [Sorin Sîrbu](https://unsplash.com/@sirbusorin?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)_
+## -[ Go-lang ](https://golang.org/)-
 
 Here we follow the same steps as in the Node implementation. scrape takes u for a URL, and t for term or search term. The convention for single character variables in Go is exactly contrary to how I learned to write readable code. It is, however, their conventions so I must abide.
 
@@ -158,9 +154,7 @@ A huge difference in moving from a dynamic language like JavaScript to Go is tha
 
 After some collaboration with someone more familiar with Go, I was able to streamline some ugly string concatenation (using Sprintf instead of +) and better understand the naming conventions in Go. When passing variables to a function use one or two letters, otherwise something like filename or body is fine. Go stands out in this list as an accessible strongly typed language.
 
-### -[ Python ](https://www.python.org/)-
-
-![Photo by [Hitesh Choudhary](https://unsplash.com/@hiteshchoudhary?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10944/0*Q4baI1k4h2abxwCl)_Photo by [Hitesh Choudhary](https://unsplash.com/@hiteshchoudhary?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)_
+## -[ Python ](https://www.python.org/)-
 
 Straightforward is how I would describe writing Python. It is no wonder this is a first language choice for many new programmers. Python’s user base is massive, and support is ubiquitous.
 
@@ -206,9 +200,7 @@ One issue I will point out here is that Python, rather than having clear syntax 
 
 I understand that this quality of Python is what makes it accessible and why so many people use it. I love the ability here to simply write if term in s.read() without having to invoke a method to search a string. Python strikes me as utilitarian, and to that point an extremely powerful general purpose language.
 
-### -[ Rust ](https://www.rust-lang.org)-
-
-![Photo by [Ross Sokolovski](https://unsplash.com/@ross_sokolovski?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/11232/0*aUZ_VdI1jQsecFMp)_Photo by [Ross Sokolovski](https://unsplash.com/@ross_sokolovski?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)_
+## -[ Rust ](https://www.rust-lang.org)-
 
 Right off the bat Rust is a totally different animal to the previous languages in this article. One amazing thing about Rust is that it’s compiler errors are actually human readable and very helpful.
 
@@ -283,7 +275,7 @@ I mentioned earlier that one pain point in Go was error checking. Rust does not 
 
 When reading a file we have used the .expect() syntax to handle an exception, while the timestamp generation uses a [Result enum](https://doc.rust-lang.org/book/2018-edition/ch09-02-recoverable-errors-with-result.html) to handle the error. I like options, and surprisingly despite my struggles with it I really like Rust. I wouldn’t be comfortable reaching for it to quickly prototype an idea, but my interest has grown.
 
-![Photo by [Kobu Agency](https://unsplash.com/@kobuagency?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/11138/0*MwV6SJNL8fJOmeoQ)_Photo by [Kobu Agency](https://unsplash.com/@kobuagency?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)_
+## Wrapping up
 
 Each of these languages has a different purpose, they solve different problems. A couple of these languages (Python and JavaScript) seem to have solutions for every problem. But as such they lack efficiencies and safety that Go and Rust excel in.
 

@@ -1,0 +1,25 @@
+.Blogpost {
+  display: flex;
+  flex-direction: column;
+  color: #222;
+  font-size: 1.1em;
+  letter-spacing: 0.8px;
+  font-optical-sizing: auto;
+  justify-content: center;
+  font-family: sans-serif;
+}
+
+.Blogpost p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.Blogpost a {
+  text-decoration: none;
+  color: rgb(96, 87, 170);
+}
+
+.Blogpost a:hover {
+  text-decoration: underline;
+  color: rgb(96, 79, 226);
+}

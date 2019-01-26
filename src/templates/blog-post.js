@@ -2,12 +2,14 @@ import React from 'react'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 
+import './blog.css'
+
 function BlogPost(props) {
   const post = props.data.markdownRemark
   const { title } = post.frontmatter
   return (
     <Layout>
-      <div>
+      <div className="Blogpost">
         <h1>{title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
