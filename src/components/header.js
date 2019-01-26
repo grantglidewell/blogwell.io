@@ -1,11 +1,13 @@
-import { Link } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
+import PropTypes from 'prop-types'
+
+import { Link } from 'gatsby'
+import ThemeSwitch from './ThemeSwitch'
 
 const Header = ({ siteTitle }) => (
   <div
     style={{
-      background: `rgb(144, 132, 255)`,
+      background: `rgb(125, 88, 158)`,
       marginBottom: `1.45rem`,
     }}
   >
@@ -14,6 +16,8 @@ const Header = ({ siteTitle }) => (
         margin: `0 auto`,
         maxWidth: 960,
         padding: `1.45rem 1.0875rem`,
+        display: 'flex',
+        justifyContent: 'space-between',
       }}
     >
       <h1 style={{ margin: 0 }}>
@@ -23,11 +27,15 @@ const Header = ({ siteTitle }) => (
             color: `#333`,
             textDecoration: `none`,
             fontWeight: '200',
+            backgroundColor: 'inherit',
           }}
         >
           {siteTitle}
         </Link>
       </h1>
+      <div>
+        <ThemeSwitch preserveRasters />
+      </div>
     </div>
   </div>
 )
