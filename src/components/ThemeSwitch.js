@@ -14,8 +14,6 @@ class ThemeSwitch extends Component {
         'img:not([src*=".svg"]), video, [style*="url("] { filter: invert(100%) }'
     }
 
-    this.supported = this.isDeclarationSupported('filter', 'invert(100%)')
-
     this.state = {
       active: false,
     }
@@ -45,10 +43,13 @@ class ThemeSwitch extends Component {
   }
 
   componentDidMount() {
-    if (localStorage && localStorage.getItem(this.props.storeKey) === 'true') {
+    if (localStorage) {
       this.setState({
         supported: this.isDeclarationSupported('filter', 'invert(100%)'),
-        active: localStorage.getItem(this.props.storeKey),
+        active:
+          localStorage.getItem(this.props.storeKey) === 'true'
+            ? 'true'
+            : 'false',
       })
     }
   }
