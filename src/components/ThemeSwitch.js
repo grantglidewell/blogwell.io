@@ -15,10 +15,8 @@ class ThemeSwitch extends Component {
     }
 
     this.state = {
-      active: false,
+      active: 'false',
     }
-
-    this.toggle = this.toggle.bind(this)
   }
 
   isDeclarationSupported(property, value) {
@@ -29,39 +27,31 @@ class ThemeSwitch extends Component {
     return mStyle[property]
   }
 
-  toggle() {
+  toggle = () => {
     this.setState(
       {
         active: !this.state.active,
       },
       () => {
-        if (localStorage) {
-          localStorage.setItem(this.props.storeKey, this.state.active)
-        }
+        localStorage.setItem(this.props.storeKey, this.state.active)
       }
     )
   }
 
   componentDidMount() {
-    if (localStorage) {
-      this.setState({
-        supported: this.isDeclarationSupported('filter', 'invert(100%)'),
-        active:
-          localStorage.getItem(this.props.storeKey) === 'true'
-            ? 'true'
-            : 'false',
-      })
-    }
+    this.setState({
+      active: localStorage.getItem(this.props.storeKey) === 'true',
+    })
   }
 
   render() {
-    if (!this.supported) {
-      return null
-    }
-
     return (
       <div>
-        <button aria-pressed={this.state.active} onClick={this.toggle}>
+        <button
+          aria-pressed={this.state.active}
+          onClick={this.toggle}
+          style={{ outline: 'none' }}
+        >
           {this.state.active ? 'Light' : 'Dark'}
         </button>
         <style media={this.state.active ? 'screen' : 'none'}>
