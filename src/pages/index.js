@@ -6,15 +6,17 @@ const IndexPage = props => {
   const postList = props.data.allMarkdownRemark
   return (
     <Layout>
-      {postList.edges.map(({ node }, i) => (
-        <Link to={node.fields.slug} key={i} className="link">
-          <div className="post-list">
-            <h1>{node.frontmatter.title}</h1>
-            <span>{node.frontmatter.date}</span>
-            <p>{node.excerpt}</p>
-          </div>
-        </Link>
-      ))}
+      <div className="post-wrap">
+        {postList.edges.map(({ node }, i) => (
+          <Link to={node.fields.slug} key={i} className="link">
+            <div className="post-list">
+              <h1>{node.frontmatter.title}</h1>
+              <span>{node.frontmatter.date}</span>
+              <p>{node.excerpt}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
     </Layout>
   )
 }
