@@ -18,13 +18,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `grant-glidewell-blog`,
+        short_name: `blog`,
         start_url: `/`,
         background_color: `#efefef`,
         theme_color: `#efefef`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/ggblog.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-transformer-remark`,
