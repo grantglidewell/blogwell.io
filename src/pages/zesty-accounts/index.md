@@ -5,8 +5,6 @@ date: '2018-10-01'
 image: ''
 ---
 
-# Making Decisions in our React/Redux app
-
 Photo by Everaldo Coelho on Unsplash
 
 This will serve as both an announcement and an explanation. An announcement that our [Accounts-UI react/redux app](https://github.com/zesty-io/accounts-ui) will be open to the public.

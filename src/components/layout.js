@@ -20,7 +20,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={data => (
-      <>
+      <div style={{ backgroundColor: '#eee' }}>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
@@ -33,7 +33,7 @@ const Layout = ({ children }) => (
           {children}
         </div>
         <Footer siteTitle={data.site.siteMetadata.title} />
-      </>
+      </div>
     )}
   />
 )

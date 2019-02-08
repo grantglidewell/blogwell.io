@@ -5,8 +5,6 @@ date: '2018-07-30'
 image: ''
 ---
 
-# Testing with Cypress.io
-
 “Lone green treetop tree on the coastline field at Poipu Beach” by Todd Quackenbush on Unsplash. Its a tree, probably not a cypress, dont be so picky.
 
 Testing, how does it work? Well, to be honest, I don’t know much about it. I have used jest a handful of times, I have manually tested UI, and done my best to error-proof (go ahead, laugh at that) response handlers in my front end code. But as for actually making a good habit of testing the overall functionality of my code I have fallen, staggeringly short of my goals. The main hurdle for me was getting down to **what needs to be tested**. There are schools of thought on this, but my opinion would follow along with [\*Guillermo Rauch](undefined) _when he tweeted_ - ‘\*Write tests. Not too many. Mostly integration.’

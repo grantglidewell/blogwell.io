@@ -5,7 +5,7 @@
 
 .link h1 {
   font-size: 1.8em;
-  color: #111;
+  color: #222;
 }
 
 .post-wrap {
@@ -27,7 +27,7 @@
   margin-top: 1.8rem;
   margin-bottom: 2.2rem;
   margin-right: 2.2rem;
-  background-color: rgb(250, 250, 250);
+  background-color: #efefef;
 }
 .post-list span {
   font-weight: 100;

@@ -1,7 +1,7 @@
 .Blogpost {
   display: flex;
   flex-direction: column;
-  color: #222;
+  color: rgb(54, 54, 54);
   font-size: 1.1em;
   letter-spacing: 0.8px;
   font-optical-sizing: auto;

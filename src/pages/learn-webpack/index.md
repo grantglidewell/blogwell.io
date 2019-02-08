@@ -5,11 +5,9 @@ date: '2018-08-04'
 image: ''
 ---
 
-# It's time for you to learn Webpack
-
 I use **Webpack**.
 
-I have used it in **create-react-app (CRA) **through **react-scripts**, and in other projects that have custom configs set up before I lay a finger on them. But I don’t really know how it works. I look at the configs, I understand some of the ideas behind it, but I’ve never written a **Webpack** config, or tried to set my own up. That is what this article will be about. Going from no config, to a basic functioning setup that will bundle **HTML**, **CSS**, and **Javascript**.
+I have used it in create-react-app (CRA) through react-scripts, and in other projects that have custom configs set up before I lay a finger on them. But I don’t really know how it works. I look at the configs, I understand some of the ideas behind it, but I’ve never written a **Webpack** config, or tried to set my own up. That is what this article will be about. Going from no config, to a basic functioning setup that will bundle **HTML**, **CSS**, and **Javascript**.
 
 My goal is to demystify as much of the process as possible, so that **Webpack** can be more accessible and friendly to newer developers.
 
