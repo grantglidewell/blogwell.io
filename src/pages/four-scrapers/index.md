@@ -7,7 +7,7 @@ image: ''
 
 # I wrote a web scraper in four different languages.
 
-A rebuke of “hello world”, in Node, Go, Python, and Rust.
+A rebuke of “hello world” in Node, Go, Python, and Rust.
 
 ![Photo by [Jonny Caspari](https://unsplash.com/@jonnysplsh?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/11520/0*kYdNaQgGYowXLEKw)Photo by [Jonny Caspari](https://unsplash.com/@jonnysplsh?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)
 
