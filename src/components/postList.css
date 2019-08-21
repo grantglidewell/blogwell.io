@@ -1,11 +1,11 @@
 .link {
   text-decoration: none;
-  color: #222;
+  color: rgb(54, 54, 54);
 }
 
 .link h1 {
   font-size: 1.8em;
-  color: #222;
+  color: rgb(54, 54, 54);
 }
 
 .post-wrap {

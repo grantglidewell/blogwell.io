@@ -9,10 +9,12 @@ function BlogPost(props) {
   const { title } = post.frontmatter
   return (
     <Layout>
-      <div className="Blogpost">
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      <main className="wrapper">
+        <div className="blogpost">
+          <h1>{title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        </div>
+      </main>
     </Layout>
   )
 }

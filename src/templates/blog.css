@@ -1,4 +1,9 @@
-.Blogpost {
+.wrapper {
+  margin: 0 auto;
+  max-width: 650px;
+}
+
+.blogpost {
   display: flex;
   flex-direction: column;
   color: rgb(54, 54, 54);
@@ -9,17 +14,17 @@
   font-family: sans-serif;
 }
 
-.Blogpost p {
+.blogpost p {
   text-align: justify;
   text-justify: inter-word;
 }
 
-.Blogpost a {
+.blogpost a {
   text-decoration: none;
   color: rgb(96, 87, 170);
 }
 
-.Blogpost a:hover {
+.blogpost a:hover {
   text-decoration: underline;
   color: rgb(96, 79, 226);
 }

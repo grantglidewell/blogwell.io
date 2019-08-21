@@ -1,15 +1,15 @@
 const path = require('path')
-const { createFilePath, createFileNode } = require(`gatsby-source-filesystem`)
+const { createFilePath } = require(`gatsby-source-filesystem`)
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`)
+
   return new Promise((resolve, reject) => {
     resolve(
       graphql(`
         {
           allMarkdownRemark(
             sort: { order: DESC, fields: [frontmatter___date] }
-            limit: 1000
           ) {
             edges {
               node {
