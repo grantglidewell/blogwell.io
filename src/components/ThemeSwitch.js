@@ -1,6 +1,20 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import ReactSwitch from 'react-switch'
 
-class ThemeSwitch extends Component {
+const Switch = props => <ReactSwitch {...props} />
+
+Switch.defaultProps = {
+  checkedIcon: false,
+  uncheckedIcon: false,
+  height: 24,
+  width: 48,
+  handleDiameter: 24,
+  offColor: `#000`,
+  onColor: `#000`,
+  boxShadow: `inset 0 0 0 1px #000`,
+}
+
+class ThemeSwitch extends PureComponent {
   constructor(props) {
     super(props)
 
@@ -39,25 +53,25 @@ class ThemeSwitch extends Component {
   }
 
   componentDidMount() {
-    this.setState({
-      active: localStorage.getItem(this.props.storeKey) === 'true',
-    })
+    if (localStorage.getItem(this.props.storeKey)) {
+      this.setState({
+        active: localStorage.getItem(this.props.storeKey) === 'true',
+      })
+    }
   }
 
   render() {
     return (
-      <div>
-        <button
-          aria-pressed={this.state.active}
-          onClick={this.toggle}
-          style={{ outline: 'none' }}
-        >
-          {this.state.active ? 'Light' : 'Dark'}
-        </button>
-        <style media={this.state.active ? 'screen' : 'none'}>
-          {this.state.active ? this.css.trim() : this.css}
+      <>
+        <Switch
+          {...this.switchProps}
+          onChange={this.toggle}
+          checked={!this.state.active}
+        />
+        <style media={this.state.active ? 'none' : 'screen'}>
+          {!this.state.active ? this.css.trim() : this.css}
         </style>
-      </div>
+      </>
     )
   }
 }
