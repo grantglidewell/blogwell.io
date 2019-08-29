@@ -27,7 +27,9 @@ module.exports = {
         icon: `src/images/ggblog.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-transformer-remark`,
+    },
     'gatsby-plugin-offline',
     {
       resolve: `gatsby-source-filesystem`,
