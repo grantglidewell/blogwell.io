@@ -11,7 +11,7 @@ In our recent rebrand at Third and Grove we took on a Drupal headless build with
 
 Even though we won this war, there are lessons we would like to pass on, the first being that Gatsby documentation recommends using `useStaticQuery`.
 
-```javascript
+```js
 childImageSharp {
          fluid(maxWidth: 980, maxHeight: 480) {
            ...GatsbyImageSharpFluid_withWebp
@@ -25,7 +25,7 @@ Once our data was re-plumbed and we had rid our js bundles from base64 images we
 
 As I mentioned, we use a few fonts on our site. The fonts are an integral part of the look. And they look stunning. All 18 weights and variants! There is very little you can do in the way of compression for fonts, unlike images, which at build time we are able to cut down to a reasonable size no matter what the source. We started with woff files, by converting those to woff2 we saved about ⅓ on the total transfer of all of these. So now we’re looking at ~20kb over 18 fonts thats still a whopping 360k down the wire! First thing to do was see what fonts we were using on the homepage. After narrowing that down to only 8 we preloaded those particular fonts. The font definitions had to updated to reference the local preloaded fonts as well (I initially forgot this and doubled the load for some fonts, whoops).
 
-```
+```js
 <link
   rel="preload"
   href="/Fonts/Canela/Canela-Black.woff2"

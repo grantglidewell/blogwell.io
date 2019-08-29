@@ -39,42 +39,40 @@ Attaining these four goals involves a much deeper understanding of each language
 
 I work daily in JavaScript, this will set the bar for what I want to replicate in other languages. Keeping as much as possible native and simple. I came up with this:
 
-    const { get } = require('https')
-    const { readFileSync, writeFileSync } = require('fs')
+```js
+const { get } = require('https')
+const { readFileSync, writeFileSync } = require('fs')
 
-    const checkPageForText = (page, text) => {
+const checkPageForText = (page, text) => {
+  // Make the http request for the resource
+  get(page, resp => {
+    let data = ''
 
-      // Make the http request for the resource
-      get(page, resp => {
-        let data = ''
+    // Build the 'data' string as chunks come in
+    resp.on('data', chunk => (data += chunk))
 
-        // Build the 'data' string as chunks come in
-        resp.on('data', chunk => (data += chunk))
+    // Response has ended, we have completely built our data
+    resp.on('end', () => {
+      // Create a unique token for filename
+      const token = new Date().valueOf()
 
-        // Response has ended, we have completely built our data
-        resp.on('end', () => {
+      // Write data as a file to disk
+      writeFileSync(`scrape-${token}.html`, data)
 
-          // Create a unique token for filename
-          const token = new Date().valueOf()
+      // Read the file and check if the search term is present
+      if (readFileSync(`scrape-${token}.html`, 'utf8').includes(text)) {
+        // Return a message to the user that the search term was found
+        console.log(`${text} exists on ${page}`)
+      } else {
+        // Return a message to the user that the search term was not found
+        console.log(`${text} not found on ${page}`)
+      }
+    })
+  })
+}
 
-          // Write data as a file to disk
-          writeFileSync(`scrape-${token}.html`, data)
-
-          // Read the file and check if the search term is present
-          if (readFileSync(`scrape-${token}.html`, 'utf8').includes(text)) {
-
-            // Return a message to the user that the search term was found
-            console.log(`${text} exists on ${page}`)
-          } else {
-
-            // Return a message to the user that the search term was not found
-            console.log(`${text} not found on ${page}`)
-          }
-        })
-      })
-    }
-
-    checkPageForText('URL', 'searchTerm')
+checkPageForText('URL', 'searchTerm')
+```
 
 We have imported three native methods, get which will fetch our page, and then readFileSync and writeFileSync functions that are blocking (they behave synchronously). When we call checkPageForText it takes a URL and a term. It first makes an http request for the resource (url), when the data stream comes in chunks it builds a data string out of those chunks.
 
@@ -90,63 +88,65 @@ Overall we have a basic scrape of a page and can find a search string and report
 
 Here we follow the same steps as in the Node implementation. scrape takes u for a URL, and t for term or search term. The convention for single character variables in Go is exactly contrary to how I learned to write readable code. It is, however, their conventions so I must abide.
 
-    package main
+```go
+package main
 
-    import (
-      "fmt"
-      "io/ioutil"
-      "net/http"
-      "strconv"
-      "strings"
-      "time"
-    )
+import (
+  "fmt"
+  "io/ioutil"
+  "net/http"
+  "strconv"
+  "strings"
+  "time"
+)
 
-    func main() {
-      fmt.Println(scrape("URL", "SearchTerm"))
-    }
+func main() {
+  fmt.Println(scrape("URL", "SearchTerm"))
+}
 
-    func scrape(u string, t string) (string, error) {
+func scrape(u string, t string) (string, error) {
 
-      // Make the http request for the resource
-      resp, err := http.Get(u)
-      if err != nil {
-        return "", err
-      }
+  // Make the http request for the resource
+  resp, err := http.Get(u)
+  if err != nil {
+    return "", err
+  }
 
-      // Close the connection when the response is complete
-      defer resp.Body.Close()
+  // Close the connection when the response is complete
+  defer resp.Body.Close()
 
-      // Read the response body to a variable
-      body, err := ioutil.ReadAll(resp.Body)
-      if err != nil {
-        return "", err
-      }
+  // Read the response body to a variable
+  body, err := ioutil.ReadAll(resp.Body)
+  if err != nil {
+    return "", err
+  }
 
-      // Create a unique token for filename
-      ts := strconv.FormatInt(time.Now().UTC().UnixNano(), 10)
+  // Create a unique token for filename
+  ts := strconv.FormatInt(time.Now().UTC().UnixNano(), 10)
 
-      // Generate a string for the filename
-      filename := fmt.Sprintf("scrape%v.html", ts)
+  // Generate a string for the filename
+  filename := fmt.Sprintf("scrape%v.html", ts)
 
-      // Write body as a file to disk
-      ioutil.WriteFile(filename, body, 0644)
+  // Write body as a file to disk
+  ioutil.WriteFile(filename, body, 0644)
 
-      // Read the file to a variable
-      dat, err := ioutil.ReadFile(filename)
-      if err != nil {
-        return "", err
-      }
+  // Read the file to a variable
+  dat, err := ioutil.ReadFile(filename)
+  if err != nil {
+    return "", err
+  }
 
-      // Check if the search term is present
-      if strings.Contains(string(dat), t) {
+  // Check if the search term is present
+  if strings.Contains(string(dat), t) {
 
-        // Return a message to the user that the search term was found
-        return fmt.Sprintf("Found %[1]s in %[2]s", t, u), nil
-      }
+    // Return a message to the user that the search term was found
+    return fmt.Sprintf("Found %[1]s in %[2]s", t, u), nil
+  }
 
-      // Return a message to the user that the search term was not found
-      return fmt.Sprintf("%[1]s was not found in %[2]s", t, u), nil
-    }
+  // Return a message to the user that the search term was not found
+  return fmt.Sprintf("%[1]s was not found in %[2]s", t, u), nil
+}
+```
 
 Error checking is a known pain point in working with Go. You can see the successive error checking with each possible fail point. On one hand this is repetitive, however it does make it easier to debug.
 
@@ -158,41 +158,43 @@ After some collaboration with someone more familiar with Go, I was able to strea
 
 Straightforward is how I would describe writing Python. It is no wonder this is a first language choice for many new programmers. Python’s user base is massive, and support is ubiquitous.
 
-    from  urllib2 import urlopen
-    import time
+```py
+from  urllib2 import urlopen
+import time
 
-    def scrape(url, term) :
+def scrape(url, term) :
 
-        # Make the http request for the resource
-        response = urlopen(url)
+    # Make the http request for the resource
+    response = urlopen(url)
 
-        # Read the response body to a variable
-        html = response.read()
+    # Read the response body to a variable
+    html = response.read()
 
-        # Create a unique token for filename
-        ts = time.time()
+    # Create a unique token for filename
+    ts = time.time()
 
-        # Generate a string for the filename
-        filename = "scrape" + str(ts) + ".html"
+    # Generate a string for the filename
+    filename = "scrape" + str(ts) + ".html"
 
-        # Write html as a file to disk
-        f = open(filename, "w")
-        f.write(html)
+    # Write html as a file to disk
+    f = open(filename, "w")
+    f.write(html)
 
-        # Open the file
-        s = open(filename, "r")
+    # Open the file
+    s = open(filename, "r")
 
-        # Read the file and check if the search term is present
-        if term in s.read():
+    # Read the file and check if the search term is present
+    if term in s.read():
 
-            # Return a message to the user that the search term was found
-            return "Found " + term + " in " + url
+        # Return a message to the user that the search term was found
+        return "Found " + term + " in " + url
 
-        # Return a message to the user that the search term was not found
-        return term + " was not found in " + url
+    # Return a message to the user that the search term was not found
+    return term + " was not found in " + url
 
 
-    print scrape('URL', 'SearchTerm')
+print scrape('URL', 'SearchTerm')
+```
 
 Here we make the same scrape program with the same url and term parameters. The code is so simple and easy to follow along I almost don’t think it requires explanation.
 
@@ -208,64 +210,66 @@ Right off the bat Rust is a totally different animal to the previous languages i
 
 I think they’ve really gone above and beyond here trying to take the pain out of something that could easily have become less important while developing the tooling for Rust. After coding for significantly more time than the other languages in this article, this is the Rust scraper:
 
-    extern crate reqwest;
-    use std::time::SystemTime;
-    use std::fs::File;
-    use std::io::prelude::*;
+```rust
+extern crate reqwest;
+use std::time::SystemTime;
+use std::fs::File;
+use std::io::prelude::*;
 
-    fn write_file(filename: &str, data: &str) {
-        let bytes = data.as_bytes();
-        let mut file = File::create(filename).expect("Error creating file");
-        file.write_all(bytes).expect("Error writing file");
+fn write_file(filename: &str, data: &str) {
+    let bytes = data.as_bytes();
+    let mut file = File::create(filename).expect("Error creating file");
+    file.write_all(bytes).expect("Error writing file");
+}
+
+fn read_file(filename: &str) -> String {
+    let mut file = File::open(filename).expect("Error opening file");
+    let mut contents = String::new();
+    file.read_to_string(&mut contents);
+    return contents;
+}
+
+fn gen_timestamp() -> String {
+    match SystemTime::now().duration_since(SystemTime::UNIX_EPOCH) {
+        Ok(n) => n.as_secs().to_string(),
+        Err(_) => panic!("SystemTime before UNIX EPOCH!"),
+    }
+}
+
+fn scrape(url: &str, term: &str) -> String {
+
+    // Make the http request for the resource
+    // and assign the text response to a variable
+    let response_text = reqwest::get(url)
+        .expect("Unable to find url")
+        .text()
+        .expect("Unable to read response");
+
+    // Create a unique token for filename
+    let timestamp = gen_timestamp();
+    let filename = ["scape", &timestamp, ".html"].join("");
+
+    // Write the response text to disk
+    write_file(&filename, &response_text);
+
+    // Read the file to a variable
+    let scrape_data = read_file(&filename);
+
+    // Check if the search term is present
+    if scrape_data.contains(term) {
+
+        // Return a message to the user that the search term was found
+        return ["Found", term, "in", url].join(" ");
     }
 
-    fn read_file(filename: &str) -> String {
-        let mut file = File::open(filename).expect("Error opening file");
-        let mut contents = String::new();
-        file.read_to_string(&mut contents);
-        return contents;
-    }
+    // Return a message to the user that the search term was not found
+    return [term, "was not found in", url].join(" ");
+}
 
-    fn gen_timestamp() -> String {
-        match SystemTime::now().duration_since(SystemTime::UNIX_EPOCH) {
-            Ok(n) => n.as_secs().to_string(),
-            Err(_) => panic!("SystemTime before UNIX EPOCH!"),
-        }
-    }
-
-    fn scrape(url: &str, term: &str) -> String {
-
-        // Make the http request for the resource
-        // and assign the text response to a variable
-        let response_text = reqwest::get(url)
-            .expect("Unable to find url")
-            .text()
-            .expect("Unable to read response");
-
-        // Create a unique token for filename
-        let timestamp = gen_timestamp();
-        let filename = ["scape", &timestamp, ".html"].join("");
-
-        // Write the response text to disk
-        write_file(&filename, &response_text);
-
-        // Read the file to a variable
-        let scrape_data = read_file(&filename);
-
-        // Check if the search term is present
-        if scrape_data.contains(term) {
-
-            // Return a message to the user that the search term was found
-            return ["Found", term, "in", url].join(" ");
-        }
-
-        // Return a message to the user that the search term was not found
-        return [term, "was not found in", url].join(" ");
-    }
-
-    fn main() {
-        println!("{}", scrape("URL", "SEARCH_TERM"));
-    }
+fn main() {
+    println!("{}", scrape("URL", "SEARCH_TERM"));
+}
+```
 
 I had a hard time finding a straightforward way to make an http request with the standard library and wound up using an external crate (package/library) called reqwest.
 

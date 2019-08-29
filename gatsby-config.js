@@ -29,6 +29,18 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-vscode`,
+            // All options are optional. Defaults shown here.
+            options: {
+              colorTheme: 'Dark+ (default dark)', // Read on for list of included themes. Also accepts object and function forms.
+              injectStyles: true, // Injects (minimal) additional CSS for layout and scrolling
+            },
+          },
+        ],
+      },
     },
     'gatsby-plugin-offline',
     {
