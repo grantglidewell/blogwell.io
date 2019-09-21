@@ -1,7 +1,7 @@
 ---
 title: 'Performance and Gatsby'
 description: Getting the best performance out of a Gatsby site
-date: '2019-09-29'
+date: '2019-08-29'
 image: ''
 ---
 
