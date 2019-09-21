@@ -5,11 +5,11 @@ date: '2019-09-21'
 image: ''
 ---
 
-# JavaScript, how do I run it?
+#### JavaScript, how do I run it?
 
 This question may seem very simple, but it occurs to me that this question only seems simple once you've learned how to do it. After this point we seem to forget the wonder and amazement of seeing code run. We forget that one of our first questions when learning to write JS was likely 'Without this prepared environment im working in, how would I run this?'. So in this article Ill explore some options on how to run JavaScript code. We'll cover JS's home, the browser and how we can get code to run in the browser. And we'll then explore running code outside of the browser using Node.js.
 
-## JavaScript in the browser, at home
+##### JavaScript in the browser, at home
 
 The original home for JavaScript is the browser. The intention for this language (once called Mocha, and LiveScript) was to provide a way for web developers to create more interactive web experiences. While it's outgrown that original role, JS is still _the_ native language of the web. That said, How do you make it do it's thing?
 
@@ -57,7 +57,7 @@ Another question that often follows this is 'But... I want to just write JavaScr
 
 Now you have JS, separate from html, running in the browser. feel free to [createElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement), [append](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append), [alert](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert), or [whatever](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API) to your heart's content!
 
-## Are you too good for your home?
+##### Are you too good for your home?
 
 Well the home of JS might be the browser, but its not always where we want to run our code. Nodejs provides us with a way to run code 'server side', this just means the code runs on our computer rather than in the browser. **Be Warned: this involves using the command line, which is out of the scope of this article.** First things first you've got to have [Nodejs installed](https://nodejs.org/en/download/) on your machine. Now that we have that installed we need a file to run. We can use the on from the browser that we've already written. It should look like this:
 

@@ -5,7 +5,7 @@ date: '2019-01-07'
 image: ''
 ---
 
-## Relational content in react/redux
+#### Relational content in react/redux
 
 At [Zesty.io](https://www.zesty.io/) we recently released our new content management ui. This was a huge undertaking, were re-building our core product. Previously the app was a PHP monolith, our new release is built in React/Redux and relies heavily on a new golang rest api. This means we are now relying on calls to an api rather than directly manipulating a database. There are clear advantages with this approach, one being the code can be much cleaner as it’s purpose becomes more singular. It did, however, make some actions more difficult. One of those issues came in the form of relationships.
 
