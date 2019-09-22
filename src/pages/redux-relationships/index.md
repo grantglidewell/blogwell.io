@@ -2,6 +2,7 @@
 title: 'Relationships are hard'
 description: making decisions in a react redux application
 date: '2019-01-07'
+author: 'Grant Glidewell'
 image: ''
 ---
 

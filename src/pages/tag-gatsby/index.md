@@ -2,6 +2,7 @@
 title: 'Third and Grove Gatsby site build'
 description: building our Gatsby front end for a headless Drupal site
 date: '2019-08-20'
+author: 'Grant Glidewell'
 image: ''
 ---
 

@@ -2,6 +2,7 @@
 title: 'Testing with Cypress.io'
 description: Testing react applications with Cypress
 date: '2018-07-30'
+author: 'Grant Glidewell'
 image: ''
 ---
 

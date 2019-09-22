@@ -2,6 +2,7 @@
 title: 'Learn Recursion from Mr Meeseeks'
 description: Mr Meeseeks teaches recursion
 date: '2018-08-31'
+author: 'Grant Glidewell'
 image: ''
 ---
 

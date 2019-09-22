@@ -2,6 +2,7 @@
 title: 'Four Scrapers'
 description: I wrote four scrapers in four different languages
 date: '2018-12-04'
+author: 'Grant Glidewell'
 image: ''
 ---
 

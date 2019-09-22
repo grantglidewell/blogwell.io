@@ -2,6 +2,7 @@
 title: 'Running JavaScript'
 description: how to run javascript code
 date: '2019-09-21'
+author: 'Grant Glidewell'
 image: ''
 ---
 
@@ -30,9 +31,9 @@ The easiest way to get this to happen is to create an HTML document. Anywhere yo
 </html>
 ```
 
-If you open this in your browser of choice, you may be thinking 'hey, what gives?'. But theres one more step here, right click the page and select `inspect`. In the inspector make sure you have the `console` tab open. Now you see it, dont you? What youve been looking for all along? everything in that script tag there is running in your browser. you can do whatever you want, like `document.body.append('Im a thing now!')` right in the console! and see the result live. There are a couple things to note. One is that writing code in the console does not edit your file directly, and another is that editing your file directly does not live reload your browser, youll have to refresh to see any changes you make.
+If you open this in your browser of choice, you may be thinking 'hey, what gives?'. But theres one more step here, right click the page and select `inspect`. In the inspector make sure you have the `console` tab open. Now you see it, don't you? What you've been looking for all along? everything in that script tag there is running in your browser. You can do whatever you want, like `document.body.append('Im a thing now!')` right in the console! and see the result live. There are a couple things to note. One is that writing code in the console does not edit your file directly, and another is that editing your file directly does not live reload your browser, you'll have to refresh to see any changes you make.
 
-Some may also note that if they try to put the append code from the last paragraph into the script tag, they get an error. Well that has to do with where we put the script tag. Having the script tag in the head isnt always what you want. In this case we are trying to execute an append on the body without the body actually existing! Because the code is executed (or run) from top to bottom, that line of code runs before the body is rendered, thus the error. One solution is to move to script tag to the bottom of the body tag. this way the script is executed after everything in the body tag is rendered. Another way to solve this is to use an `onload` function. That would look something like this:
+Some may also note that if they try to put the append code from the last paragraph into the script tag, they get an error. Well that has to do with where we put the script tag. Having the script tag in the head isn't always what you want. In this case we are trying to execute an append on the body without the body actually existing! Because the code is executed (or run) from top to bottom, that line of code runs before the body is rendered, thus the error. One solution is to move to script tag to the bottom of the body tag. This way the script is executed after everything in the body tag is rendered. Another way to solve this is to use an `onload` function. That would look something like this:
 
 ```js
 window.onload = function() {
@@ -55,7 +56,7 @@ Another question that often follows this is 'But... I want to just write JavaScr
 </html>
 ```
 
-Now you have JS, separate from html, running in the browser. feel free to [createElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement), [append](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append), [alert](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert), or [whatever](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API) to your heart's content!
+Now you have JS, separate from html, running in the browser. Feel free to [createElement](https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement), [append](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append), [alert](https://developer.mozilla.org/en-US/docs/Web/API/Window/alert), or [whatever](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API) to your heart's content!
 
 ##### Are you too good for your home?
 
@@ -68,7 +69,7 @@ window.onload = function() {
 }
 ```
 
-In your terminal cd into the directory where this file lives. now that you have node installed you can run `node index.js`. So we get what we expect from the first line 'JS is running!', but the error after that is something that we should talk about. `Window` is something that only exists in the browser, node uses something called [`globals`](https://nodejs.org/api/globals.html), but again this is outside the scope of this article. You'll be able to run any JavaScript file in the command line like this but be aware that JS that was written for the browser will usually throw this kind of error. If we edit the index.js to look like this:
+In your terminal cd into the directory where this file lives. Now that you have node installed you can run `node index.js`. So we get what we expect from the first line 'JS is running!', but the error after that is something that we should talk about. `Window` is something that only exists in the browser, node uses something called [`globals`](https://nodejs.org/api/globals.html), but again this is outside the scope of this article. You'll be able to run any JavaScript file in the command line like this but be aware that JS that was written for the browser will usually throw this kind of error. If we edit the index.js to look like this:
 
 ```js
 console.log('JS is running!')

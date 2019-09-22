@@ -2,6 +2,7 @@
 title: 'Zesty.io Accounts app'
 description: making decisions in a react redux application
 date: '2018-10-01'
+author: 'Grant Glidewell'
 image: ''
 ---
 
