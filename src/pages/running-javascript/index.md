@@ -8,7 +8,7 @@ image: ''
 
 #### JavaScript, how do I run it?
 
-This question may seem very simple, but it occurs to me that this question only seems simple once you've learned how to do it. After this point we seem to forget the wonder and amazement of seeing code run. We forget that one of our first questions when learning to write JS was likely 'Without this prepared environment I'm working in, how would I run this?' So in this article I'll explore some options on how to run JavaScript code. We'll cover JS's home, the browser and how we can get code to run in the browser. We'll then explore running code outside of the browser using Nodejs.
+This question may seem very simple, but it occurs to me that this question only seems simple once you've learned how to do it. After this point we seem to forget the wonder and amazement of seeing code run. We forget that one of our first questions when learning to write JS was likely 'without this prepared environment I'm working in, how would I run this?' So in this article I'll explore some options on how to run JavaScript code. We'll cover JS's home, the browser and how we can get code to run in the browser. We'll then explore running code outside of the browser using Nodejs.
 
 ##### JavaScript in the browser, at home
 
