@@ -10,9 +10,9 @@ const IndexPage = props => {
         {postList.edges.map(({ node }, i) => (
           <Link to={node.fields.slug} key={i} className="link">
             <div className="post-list">
-              <h1>{node.frontmatter.title}</h1>
+              <h2>{node.frontmatter.title}</h2>
               <span>{node.frontmatter.date}</span>
-              <p>{node.excerpt}</p>
+              <p>{node.frontmatter.description}</p>
             </div>
           </Link>
         ))}
@@ -29,10 +29,10 @@ export const listQuery = graphql`
           fields {
             slug
           }
-          excerpt(pruneLength: 150)
           frontmatter {
             date(formatString: "YYYY-MM-Do")
             title
+            description
           }
         }
       }

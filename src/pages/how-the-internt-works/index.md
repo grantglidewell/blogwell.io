@@ -1,7 +1,7 @@
 ---
-title: 'How the Internet actually works'
+title: 'How the Internet works'
 
-description: the client server model for new developers
+description: 'The server client model for curious new developers'
 
 date: '2019-10-29'
 

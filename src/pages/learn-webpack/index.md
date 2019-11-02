@@ -1,6 +1,6 @@
 ---
 title: 'Learn Webpack'
-description: it's time for you to learn webpack
+description: 'Webpack setup explained in plain english'
 date: '2018-08-04'
 author: 'Grant Glidewell'
 image: ''

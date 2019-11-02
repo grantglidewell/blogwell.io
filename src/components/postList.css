@@ -3,9 +3,11 @@
   color: rgb(54, 54, 54);
 }
 
-.link h1 {
-  font-size: 1.8em;
-  color: rgb(54, 54, 54);
+.link h2 {
+  font-size: 1.4em;
+  color: rgb(113, 41, 128);
+  font-weight: 900;
+  margin-bottom: 5px;
 }
 
 .post-wrap {
@@ -15,19 +17,8 @@
 }
 
 .post-list {
-  box-shadow: 0 3px 10px rgba(25, 17, 34, 0.072);
-  margin: 2rem;
-  padding: 2rem;
-  transition: all 250ms cubic-bezier(0.3, 0, 0.4, 1);
+  margin: 2rem 0;
   border-radius: 3px;
-}
-.post-list:hover {
-  box-shadow: 0 24px 50px rgba(25, 17, 34, 0.082);
-  margin-left: 1.8rem;
-  margin-top: 1.8rem;
-  margin-bottom: 2.2rem;
-  margin-right: 2.2rem;
-  background-color: #efefef;
 }
 .post-list span {
   font-weight: 100;

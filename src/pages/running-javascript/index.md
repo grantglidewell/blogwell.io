@@ -1,6 +1,6 @@
 ---
 title: 'Running JavaScript'
-description: how to run javascript code
+description: 'How to escape the online repl roundabout and run JS on your local computer'
 date: '2019-09-21'
 author: 'Grant Glidewell'
 image: ''

@@ -1,12 +1,10 @@
 ---
 title: 'Zesty.io Accounts app'
-description: making decisions in a react redux application
+description: 'Open sourcing and lessons learned in a react redux application'
 date: '2018-10-01'
 author: 'Grant Glidewell'
 image: ''
 ---
-
-Photo by Everaldo Coelho on Unsplash
 
 This will serve as both an announcement and an explanation. An announcement that our [Accounts-UI react/redux app](https://github.com/zesty-io/accounts-ui) will be open to the public.
 
@@ -20,7 +18,7 @@ We are focused on small to medium enterprise customers who need to get their con
 
 Our users use it as a gateway to spin up instances, manage collaborators as well as details related to the instance. You could think of it as the gateway to managing your content across many instances.
 
-![Photo by [Max Bender](https://unsplash.com/@maxwbender?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/8946/0*FlylgvkY2C7iTpAL)_Photo by [Max Bender](https://unsplash.com/@maxwbender?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)_
+![Photo by [Max Bender](https://unsplash.com/@maxwbender?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/8946/0*FlylgvkY2C7iTpAL)
 
 Developers often articulate in snorts and grunts that Redux and it’s boilerplate is overkill for most cases, that isn’t wrong. It does take a bit of doing to get it set up. However those are just trees, and I’m here to show the forest. Our problem is one of data, persistence, and organization. Anyone who has passed props to a react component knows that if you need data more than a couple layers deep it can become, I’ll say-
 
@@ -48,7 +46,7 @@ Across our entire app we use this key reference method. It is sometimes cumberso
 
 This pattern also further abstracts our views from the data layer. Speaking of views, let’s get into how our components are structured.
 
-![“A local interchange with purple lights and city buildings in the background” by [Denys Nevozhai](https://unsplash.com/@dnevozhai?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10028/0*qRGGC-MKW43I5aFw)_“A local interchange with purple lights and city buildings in the background” by [Denys Nevozhai](https://unsplash.com/@dnevozhai?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)_
+![“A local interchange with purple lights and city buildings in the background” by [Denys Nevozhai](https://unsplash.com/@dnevozhai?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10028/0*qRGGC-MKW43I5aFw)
 
 Our app is wrapped in validation. Our public routes are always available, but the core app isn’t rendered at all until a user has a validated session. Sub-apps are segmented into the individual use case of each app, in this case they break down into tabs in the main app. Our teams sub app has a few aspects that may be of interest and illustrates our approach clearly.
 
@@ -72,7 +70,7 @@ This is a waste of network resources as we have now made duplicate calls in rapi
 
 In working on this app we were able to build out components, with concern for how they will work with each other, not having to concern ourselves with the data flow.
 
-![“Wooden pier pathway with white wooden railing” by [Christian Holzinger](https://unsplash.com/@pixelatelier?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10944/0*sNGK8b2ai33O7Imw)_“Wooden pier pathway with white wooden railing” by [Christian Holzinger](https://unsplash.com/@pixelatelier?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)_
+![“Wooden pier pathway with white wooden railing” by [Christian Holzinger](https://unsplash.com/@pixelatelier?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)](https://cdn-images-1.medium.com/max/10944/0*sNGK8b2ai33O7Imw)
 
 All of this component talk has me itching to discuss a fun by-product of this process. In the spirit of ‘re-usability’ and explicit, declarative, functional, more buzzwordy development; we have started to build out our [design system](https://github.com/zesty-io/design-system).
 

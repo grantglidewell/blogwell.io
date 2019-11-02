@@ -1,12 +1,12 @@
 ---
-title: 'Third and Grove Gatsby site build'
-description: building our Gatsby front end for a headless Drupal site
+title: 'Gatsby site build for Third and Grove'
+description: 'Building our Gatsby front end for a headless Drupal site'
 date: '2019-08-20'
 author: 'Grant Glidewell'
 image: ''
 ---
 
-## Building Our New Site with Gatsby and Drupal
+![Woman in 20's outfit smoking a cigarette by Marvin Meyer](https://images.unsplash.com/photo-1535271968495-080edd1ba35c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2550&q=80)
 
 Third and Grove is moving from Drupal to a headless Gatsby solution. This rebrand/replatform is a big leap forward for our brand, marking a milestone in who we want to be as a company. In this article, I'm going to focus on the tech behind the screen that makes it all happen.
 

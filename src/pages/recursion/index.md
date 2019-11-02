@@ -1,6 +1,6 @@
 ---
 title: 'Learn Recursion from Mr Meeseeks'
-description: Mr Meeseeks teaches recursion
+description: 'Mr Meeseeks as a gateway to understanding recursion'
 date: '2018-08-31'
 author: 'Grant Glidewell'
 image: ''

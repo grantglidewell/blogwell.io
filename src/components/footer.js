@@ -19,7 +19,7 @@ const Footer = ({ siteTitle }) => (
         <Link
           to="/"
           style={{
-            color: `#333`,
+            color: `#222`,
             textDecoration: `none`,
             fontWeight: '200',
             fontSize: '1rem',
