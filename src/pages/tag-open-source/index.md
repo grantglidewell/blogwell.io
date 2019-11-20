@@ -26,30 +26,27 @@ While you won’t be able to run this repo locally (without a Drupal instance th
 
 Emotion is a css-in-js library that allows for a really neat developer experience. Globally we are implementing emotion’s `Global` component in our layout, this has worked well for us. For some container definitions, we have created some common references in the form of objects in `src/styles/custom-css.js`. This was handy as we can use them in a similar way to any other JS utility function. If you’re familiar with template literals then using css-in-js is really straight forward.
 
-```
-
-
-```
-
-const containerStyles = css`width: ${contValues.min}; max-width: 100%; margin: 0 auto 60px; padding: ${isSmall ? '0 10px' : '0 20px'}; ${mediaQueries.phoneLarge} { ${isSmall &&`margin: 0 0 130px;
+```js
+const containerStyles = css`
+  width: ${contValues.min};
+  max-width: 100%;
+  margin: 0 auto 60px;
+  padding: ${isSmall ? '0 10px' : '0 20px'};
+  ${mediaQueries.phoneLarge} {
+    ${isSmall &&
+      `margin: 0 0 130px;
 padding: 13px 8px 0;
-`}; }`;
-
-```
-
-
+`};
+  }
+`
 ```
 
 In this instance, we are using our container width along with a boolean value from the content. We also use another utility object that generates mediaqueries. Emotion also allowed us to create entire components without having to actually write a component.
 
-```
+```js
+import styled from '@emotion/styled'
 
-
-```
-
-import styled from '@emotion/styled';
-
-import { weights, mediaQueries } from '../../styles';
+import { weights, mediaQueries } from '../../styles'
 
 export default styled.section`
 width: ${props => props.width || '100%'};
@@ -62,11 +59,7 @@ justify-content: \${props => props.justify || 'center'};
 ${mediaQueries.phoneLarge} {
    min-height: ${props => props.height || '700px'};
 }
-`;
-
-```
-
-
+`
 ```
 
 Here we have a highly customizable `section` component with sane defaults. Overall, the power of emotion for us was the ability to consolidate our views into single concerns. The whole component is in one file that allows for easier debugging. If you have concerns, about separation of concerns, I feel we are on solid ground with the likes of [Khan Academy](https://medium.com/@jdan/rendering-khan-academys-learn-menu-wherever-i-please-4b58d4a9432d#---0-126.mmbhsjo0j) and [Kent C. Dodds](https://twitter.com/kentcdodds/status/736021795178840064).
@@ -75,32 +68,19 @@ Here we have a highly customizable `section` component with sane defaults. Overa
 
 You may notice our blog posts (insights) and case studies pass their content into a component called `ContentBody`. The content that comes from Drupal is an array of objects that represent blocks of content. This content can be edited in a highly customizable experience and dependably rendered into React components. Organizing content this way eliminates the need to do markup parsing, replacing images in that markup with the gatsby-image component, and using ‘dangerouslySetInnerHTML’ as some have used to solve the problem of giving content editors the use of a WYSIWYG. There is a balance we have tried to strike here, and it isn't an easy one to find. This is an approach we plan to continue to refine. We think that allowing for blocks of structured content to be rendered provides both freedom and a consistent look and feel to our content.
 
-```
-
-
-```
-
+```js
 const ContentBody = ({ comps, type }) => {
-return (
-<>
-{comps.map(comp => {
-// Dynamically select a component based on field name
-const componentName = comp.relationships.component_type.name
-const Component = Components[componentName];
-return (
-<Component
-data={{ ...comp }}
-key={comp.id}
-/>
-);
-})}
-</>
-);
-};
-
-```
-
-
+  return (
+    <>
+      {comps.map(comp => {
+        // Dynamically select a component based on field name
+        const componentName = comp.relationships.component_type.name
+        const Component = Components[componentName]
+        return <Component data={{ ...comp }} key={comp.id} />
+      })}
+    </>
+  )
+}
 ```
 
 We supply content editors with Text, Image, Split (image with text), and Quote components. You can see the `ContentBody` component maps the data into corresponding components. While this might not pass a [GREP test](http://jamie-wong.com/2013/07/12/grep-test/), we think it’s a good solution to the problem of content editing freedom vs structured data in Drupal.
