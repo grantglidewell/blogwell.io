@@ -45,7 +45,7 @@ This is where things diverge a bit. Kent created [a package](https://www.npmjs.c
 
 Now if you run `yarn shorten http://whatever.com whatever` the package will write a new line to your redirects, and then push that change to your github repo. This is great and getting more useful.
 
-Add your url
+Add your `baseUrl` to that `package.json` so you get a useful clipboard copy of your shortened url after it is pushed.
 
 But I want to run this from anywhere! Kent has a solution for that, he make an alias in his bash profile. It looks like this:
 
