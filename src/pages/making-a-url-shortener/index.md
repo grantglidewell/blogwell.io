@@ -56,8 +56,8 @@ alias shorten="pushd ~/code/shortner-repo/ && npm run shorten \"{$1}\" \"{$2}\" 
 However, Us ZSH users trying to implement that same functionality needed to do something a bit different:
 
 ```bash
-alias shorten() {
-  pushd ~/code/shortner-repo/
+function shorten() {
+  pushd ~/Developer/lil-dev/
   yarn shorten $1 $2
   popd
 }
