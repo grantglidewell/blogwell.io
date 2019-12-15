@@ -22,7 +22,7 @@ At work recently we had a discussion on exactly this issue in setting up an inte
 
 There are a couple ways to set up GitHub actions, what we are going to set up is a Workflow, so not actually an action. A workflow calls one or many actions in... you guessed it, a workflow. Essentially all we need to do is make sure our project's dependencies are installed, and then we need yarn to run the linting script that enforces out standards at a more strict level. Adding this to your repo under `.github/workflows/nodejs.yml` will allow you to connect the action as a requirement for PR's into the `master` branch.
 
-```
+```yaml
 name: Lint
 on: [push]
 jobs:
@@ -41,8 +41,10 @@ jobs:
 
 Now we have a workflow that will call our script, but no script! So lets make one. In this script we are essentially turning all warning level violations into failure scenarios. This way you can use a single configuration for eslint and know that warnings will only be enforced at the PR level.
 
-```
-"eslint:github-action": "node ./node_modules/eslint/bin/eslint . --ignore-path .gitignore --max-warnings 0"
+```json
+{
+  "eslint:github-action": "node ./node_modules/eslint/bin/eslint . --ignore-path .gitignore --max-warnings 0"
+}
 ```
 
 This creates what I think is a very flexible and powerful workflow for teams. The annoyance of having to solve all of your linting errors before a push is resolved, and your master branch is safe from glaring inconsistencies. Linting in stages like this maintains tight standards without forcing what may be an uncomfortable workflow on the whole team.
