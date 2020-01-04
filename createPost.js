@@ -23,6 +23,7 @@ if (!fs.existsSync(resolve(`src/pages/${articleName}`))) {
     `Looks like you already have an article with the name ${articleName}`,
     '\x1b[0m'
   )
+  return
 }
 const date = new Date()
 fs.writeFileSync(
