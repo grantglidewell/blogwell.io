@@ -28,7 +28,10 @@ const date = new Date()
 fs.writeFileSync(
   resolve(`src/pages/${articleName}/index.md`),
   `---
-title: '${articleName.replace(/-/g, ' ')}'
+title: '${articleName
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')}'
 description: ''
 date: '${date.getFullYear()}-${(date.getMonth() + 1)
     .toString()
