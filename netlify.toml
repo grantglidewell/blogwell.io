@@ -1,0 +1,4 @@
+[[headers]]
+  for = "/feed.json"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
