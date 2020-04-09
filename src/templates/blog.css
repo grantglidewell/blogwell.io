@@ -25,3 +25,6 @@
   text-decoration: underline;
   color: rgb(96, 79, 226);
 }
+pre code {
+  margin-left: -2rem;
+}
