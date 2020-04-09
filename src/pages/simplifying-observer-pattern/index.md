@@ -1,6 +1,6 @@
 ---
 title: 'Simplifying Observer Pattern'
-description: 'The observer pattern is less complicated than you think.'
+description: 'The observer pattern is less complicated than you think. I attempt to simplify a powerful approach to creating a shared state object.'
 date: '2020-04-09'
 author: 'Grant Glidewell'
 image: ''
