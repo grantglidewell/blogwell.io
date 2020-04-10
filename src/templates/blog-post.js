@@ -8,7 +8,7 @@ function BlogPost(props) {
   const post = props.data.markdownRemark
   const { title } = post.frontmatter
   return (
-    <Layout>
+    <Layout title={title}>
       <main className="wrapper">
         <div className="blogpost">
           <h1>{title}</h1>

@@ -8,7 +8,7 @@ import Footer from './footer'
 import './layout.css'
 import './postList.css'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, title }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -21,7 +21,7 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <div style={{ backgroundColor: '#eee' }}>
-        <Header siteTitle={data.site.siteMetadata.title} />
+        <Header title={title} siteTitle={data.site.siteMetadata.title} />
         <div
           style={{
             margin: `0 auto`,
