@@ -57,7 +57,7 @@ However, Us ZSH users trying to implement that same functionality needed to do s
 
 ```bash
 function shorten() {
-  pushd ~/Developer/lil-dev/
+  pushd ~/code/shortner-repo/
   yarn shorten $1 $2
   popd
 }
